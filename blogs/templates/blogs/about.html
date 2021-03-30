@@ -1,0 +1,42 @@
+{% extends 'blogs/basic.html' %}
+{% block title %} About | Blogs {% endblock %}
+{% block css %}
+<style>
+.content{
+    margin-top: 26px;
+    padding-left: 228px;
+    padding-right: 228px;
+    font-size: 20.45px;
+}
+.writer{
+    margin-left: 704px;
+    font-size: 18px;
+}
+@media(max-width:773px){
+    .helo{
+        overflow-x: auto;
+    margin-left: -88px;
+    }
+    .content{
+        margin-top: 26px;
+    padding-left: 113px;
+    padding-right: 1px;
+    font-size: 20.45px;
+}
+
+.writer{
+    margin-left: 258px;
+    font-size: 18px;
+}
+
+
+
+}
+</style>
+{% endblock %}
+{% block body %}
+<div class="container helo">
+<p class="content"> Welcome to this website. This is a blogging website where you can get every topic to read about. You will get different topics here to know. If you have any query or sujection please post it in contact page. Thank you for reading this. </p>
+<p class="writer">- Anshu</p>
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'blogs/basic.html' %}
+{% block title %} Contact | Blogs{% endblock %}
+{% block css %}
+<style>
+.name{
+    margin-right: 269px;
+    margin-left: 192px;
+}
+.email{
+    margin-right: 147px;
+}
+.message{
+    margin-left: 419px;
+    margin-right: 408px;
+    margin-top: 55px;
+}
+.cont{
+    margin-top: 44px;
+    margin-bottom: 120px;
+}
+.subbutton{
+    margin-left: 452px;
+    margin-top: 49px;
+    border-color: darkseagreen;
+    border-radius: 5px;
+    color: gray;
+}
+.blogimg{
+    margin-top: 45px;
+    margin-left: 35px;
+    border: black;
+    border-radius: 9px;
+}
+
+@media(max-width: 1001px){
+    .helo{
+        overflow-x: auto;
+    }
+    
+    .message{
+    margin-right: 0px;
+    margin-left: 81px;
+    margin-top: 29px;
+    }
+    .name{
+    margin-right: 0px;
+    margin-left: 58px;
+    margin-bottom: 29px;
+}
+    .subbutton{
+        margin-left: 99px;
+    }
+    .blogimg{
+    margin-top: 45px;
+    margin-left: 15px;
+    border: black;
+    border-radius: 9px;
+    width: 90%;
+}
+
+.email{
+    margin-right: 60px;
+    margin-left: 61px;
+}
+
+
+
+}
+</style>
+{% endblock %}
+{% block body %}
+<div class="helo">
+<img src="https://media.istockphoto.com/photos/closeup-image-of-male-hands-using-smartphone-with-icon-telephone-picture-id1168945108?k=6&m=1168945108&s=612x612&w=0&h=L9cO1Sztbr0EkD8kfVcuD01lf_s0lFETTPqZHyjDDO4=" alt="Image" class = "blogimg">
+<form method="post" action="/contact"> {% csrf_token %}
+<div class="container cont">
+<input type="txt" placeholder="Name" class="name" name="name">
+<input type="txt" placeholder="Email" class="email" name="email">
+{% comment %} <input type = "txt" placeholder="Message" class="message" name="message"> {% endcomment %}
+<textarea class="message" rows="4" placeholder="Message" name = "message" ></textarea>
+<button type="submit" class="subbutton"> Send Message </button>
+</div>
+</form>
+</div>
+
+<script>
+    {% if thank %}
+    alert('Thank you for using of contact page.');
+    document.location='/';
+    {% elif thank == False%}
+    alert('Enter name, email and message to send message')
+    {% endif %}
+</script>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'blogs/basic.html' %}
+{% block title %} Search Results | Blogs {% endblock %}
+{% block css %}
+<style>
+
+.helo{
+    overflow-x: hidden;
+}
+.blogn{
+    margin-left: 222px;
+    margin-top: 38px;
+
+}
+.authname{
+    margin-left: 27px;
+    font-size: 0.3846cm;
+    font-family: 'Kiwi Maru', serif;
+}
+.date{
+    font-size: 0.387cm;
+}
+.post{
+    font-size: 0.489cm;
+    font-family: 'Inter', sans-serif;
+}
+.hor{
+    margin-top: 20px;
+}
+.blogimg{
+    margin-top: 45px;
+    margin-left: 35px;
+    border: black;
+    border-radius: 9px;
+}
+.page{
+    margin-bottom: 120px;
+}
+.title{
+    font-family: 'Baloo Bhai 2', cursive;
+}
+.subtitle{
+    font-family: 'Roboto', sans-serif;
+}
+@media(max-width:961px){
+    .helo{
+    overflow-x:hidden;
+}
+.container{
+        padding-left: 10px;
+    padding-right: 0px;
+}
+    .blogimg{
+        margin-top: 45px;
+    margin-left: -1px;
+    border: black;
+    border-radius: 9px;
+    max-width: 100%;
+}
+
+.blogn{
+    margin-left: 22px;
+    margin-top: 38px;
+    text-align: left;
+
+}
+</style>
+{% endblock %}
+{% block body %}
+<div class="container helo">
+{% comment %} <img src="https://neilpatel.com/wp-content/uploads/2018/10/blog.jpg" alt="Image" class = "blogimg"> {% endcomment %}
+<div class="page">
+<h2 class="search-result">Search Results</h2>
+{% if posts|length < 1 %}
+<p> No search results for this keyword.</p>
+{% elif query|length < 1 %} 
+<p> Please enter a word to search</p>
+{% else %}
+{% for post in posts %}
+<div class="container blogn">
+<h3 class="title">{{post.Title}}</h3> 
+<h5 class= "subtitle">{{post.Subtitle}}</h5> <p class= "authname"> by {{post.Author}}</p>
+<p class="post">{{post.Post}}</p>
+<p class="date">{{post.Date}}</p>
+</div>
+<hr class="hor">
+{% endfor %}
+{% endif %} 
+
+</div>
+</div>
+{% endblock %}
+
+
+/* <!--
+    TODO:
+    4. Make responsive pages
+    5. Make search option
+    6. On google webmasters
+    7. HOST!!!
+
+
+ --> */
